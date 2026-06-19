@@ -163,17 +163,78 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.avatar {
-  width: 90px;
-  height: 90px;
+.photo-upload {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.avatar-wrap {
+  position: relative;
+  width: 124px;
+  height: 124px;
+}
+
+.profile-photo,
+.avatar-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.avatar-fallback {
   display: grid;
   place-items: center;
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 18px;
   background: linear-gradient(135deg, rgba(110, 231, 255, 0.28), rgba(139, 92, 246, 0.32));
+}
+
+.profile-photo {
+  z-index: 1;
+}
+
+.upload-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.14);
+  cursor: pointer;
+  font-family: "Trebuchet MS", "Helvetica Neue", sans-serif;
+}
+
+.upload-input {
+  width: 100%;
+  max-width: 260px;
+  color: var(--muted);
+  font-family: "Trebuchet MS", "Helvetica Neue", sans-serif;
+}
+
+.upload-input::file-selector-button {
+  margin-right: 12px;
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, var(--accent), #a7f3d0);
+  color: #06111f;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.upload-note {
+  margin: 0;
+  font-size: 0.92rem;
+  text-align: center;
 }
 
 .hero-panel h2,

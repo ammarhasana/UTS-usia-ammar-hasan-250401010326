@@ -29,7 +29,15 @@
             </div>
 
             <aside class="hero-panel">
-                <div class="avatar">AH</div>
+                <div class="photo-upload">
+                    <div class="avatar-wrap">
+                        <img id="profilePreview" class="profile-photo" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80" alt="Preview foto profil">
+                        <div class="avatar-fallback">AH</div>
+                    </div>
+                    <label class="upload-label" for="profilePhoto">Upload photo profil</label>
+                    <input id="profilePhoto" class="upload-input" type="file" accept="image/*">
+                    <p class="upload-note">Pilih foto kamu untuk ditampilkan di sini.</p>
+                </div>
                 <h2>About Me</h2>
                 <p>Saya suka membuat tampilan website yang bersih, mudah dibaca, dan nyaman digunakan. Saat ini saya fokus belajar HTML, CSS, dan dasar pemrograman web.</p>
                 <div class="mini-stats">
@@ -92,6 +100,23 @@
             </article>
         </section>
     </main>
+
+    <script>
+        const photoInput = document.getElementById('profilePhoto');
+        const photoPreview = document.getElementById('profilePreview');
+
+        photoInput.addEventListener('change', () => {
+            const file = photoInput.files && photoInput.files[0];
+
+            if (!file) {
+                return;
+            }
+
+            const objectUrl = URL.createObjectURL(file);
+            photoPreview.src = objectUrl;
+            photoPreview.onload = () => URL.revokeObjectURL(objectUrl);
+        });
+    </script>
 
 </body>
 </html>
